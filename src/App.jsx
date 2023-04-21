@@ -8,7 +8,7 @@ import LoaderPage from './components/LoaderPage'
 import PageNewData from './Pages/PageNewData'
 
 function App() {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   if (loading) {
     setTimeout(() => {

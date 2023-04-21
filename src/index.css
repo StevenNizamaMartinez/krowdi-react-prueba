@@ -90,3 +90,13 @@ button {
 .container-carousel  .react-multiple-carousel__arrow--left:hover {
   background-color: var(--color-gray);
 }
+
+
+/* MEDIA QUERY */
+
+@media screen and (max-width: 768px) {
+  .btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
