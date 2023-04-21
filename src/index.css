@@ -63,6 +63,11 @@ button {
   color: white;
 }
 
+.btn-black{
+  background-color: var(--color-black);
+  color: white;
+}
+
 /* Estilo para la flecha izquierda */
 .container-carousel .react-multiple-carousel__arrow--right,
 .container-carousel .react-multiple-carousel__arrow--left {

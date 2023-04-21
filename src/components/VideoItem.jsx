@@ -1,6 +1,6 @@
 import React from 'react'
-import { useAppContext } from '../Context/AppContext'
 import { useNavigate } from 'react-router-dom'
+import VideoPlayer from './VideoPlayer'
 
 function VideoItem({question}) {
   const navigate = useNavigate()

@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useAppContext } from '../Context/AppContext'
 
 import VideoSlider from '../components/VideoSlider'
-import VideoCard from '../components/VideoCard'
 
 import { toast } from 'react-hot-toast'
+import ButtonQuestion from '../components/ButtonQuestion'
 
 function PageHome() {
   const { data, saveVideosCompleted } = useAppContext()
+  const [counter, setCounter] = useState(data?.filter((item) => {
+    item.video !== ""
+    return item
+  }))
 
   const handleCompletedVideos = () => {
     saveVideosCompleted("data")
@@ -20,9 +24,13 @@ function PageHome() {
 
   return (
     <div className="App">
-      <h1 className='home-title tracking-in-contract'>Video Cuestionario</h1>
-      <VideoSlider/>
+
+      <h1 className='home-title tracking-in-contract'>
+        <span><ButtonQuestion /></span>
+        Video Cuestionario</h1>
+      <VideoSlider />
       <div className="home-description">
+        <h4>Completado {counter?.length} / {data.length}</h4>
         {
           data.every(question => question.video !== "") ?
             <button onClick={handleCompletedVideos} className="btn btn-success">Enviar</button> :
