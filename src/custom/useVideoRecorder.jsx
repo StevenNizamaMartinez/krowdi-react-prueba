@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useVideoContext } from '../Context/VideoContext';
 import { useAppContext } from '../Context/AppContext';
 
 export function useVideoRecorder() {
 
-  const { setAnimate, recordingDuration, setStatus } = useVideoContext()
+  const { setAnimate, recordingDuration, setStatus,setRecordingDuration} = useVideoContext()
   const {saveVideoDb} = useAppContext()
   const [stream, setStream] = useState(null);
   const [recording, setRecording] = useState(false);
@@ -78,6 +78,7 @@ export function useVideoRecorder() {
   }, []);
 
   const handleStopRecording = async () => {
+    setRecordingDuration(0)
     stopRecording()
   };
 

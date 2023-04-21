@@ -6,8 +6,8 @@ import { useVideoContext } from "../Context/VideoContext";
 
 export function useVideoData() {
   const { id } = useParams()
-  const { data, question, setQuestion } = useAppContext()
-  const { recordingDuration, setRecordingDuration, status } = useVideoContext()
+  const {data, question, setQuestion } = useAppContext()
+  const { recordingDuration, setRecordingDuration, status} = useVideoContext()
 
   useEffect(() => {
     setQuestion(data?.find((question) => question.id === parseInt(id)))
@@ -15,17 +15,16 @@ export function useVideoData() {
 
   useEffect(() => {
     let intervalId;
-    const RECORDING_INTERVAL_DURATION = 1000;
     if (status === 'recording') {
       intervalId = setInterval(() => {
         setRecordingDuration((prev) => prev + 1);
-      }, RECORDING_INTERVAL_DURATION);
+      }, 1000);
     }
     return () => clearInterval(intervalId);
-  }, [status, setRecordingDuration]);
+  }, [status]);
 
   useEffect(() => {
-    const MAX_RECORDING_DURATION = 120;
+    const MAX_RECORDING_DURATION = 120; // 2 minutos
     if (recordingDuration === MAX_RECORDING_DURATION) {
       toast.error('Recording time exceeded 2 minutes')
     }
@@ -33,7 +32,7 @@ export function useVideoData() {
       stop()
       toast.error('Recording time exceeded 2 minutes')
     }
-  }, [recordingDuration, stop])
+  }, [recordingDuration])
 
   const restart = useCallback(() => {
     setRecordingDuration(0)
@@ -41,7 +40,7 @@ export function useVideoData() {
       { ...prev, video: "" }
     ))
   }, [setRecordingDuration, setQuestion])
-
+  
   const stop = useCallback(() => {
     setRecordingDuration(0)
   }, [setRecordingDuration])
