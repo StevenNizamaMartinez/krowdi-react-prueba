@@ -8,10 +8,7 @@ import ButtonQuestion from '../components/ButtonQuestion'
 
 function PageHome() {
   const { data, saveVideosCompleted } = useAppContext()
-  const [counter, setCounter] = useState(data?.filter((item) => {
-    item.video !== ""
-    return item
-  }))
+  const [counter, setCounter] = useState(data?.filter((item) => item.video !== ''))
 
   const handleCompletedVideos = () => {
     saveVideosCompleted("data")

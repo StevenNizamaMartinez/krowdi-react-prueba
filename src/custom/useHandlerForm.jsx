@@ -3,9 +3,9 @@ import { useAppContext } from '../Context/AppContext'
 
 export function useHandlerForm() {
 
-  const { data:dataContext, setData } = useAppContext()
+  const { data: dataContext, setData } = useAppContext()
   const [show, setShow] = useState(false)
-  const [inputId,setInputId] = useState()
+  const [inputId, setInputId] = useState()
 
 
   const handleInputId = (id) => {
@@ -21,9 +21,9 @@ export function useHandlerForm() {
     e.preventDefault()
     const formData = new FormData(e.target)
     const data = Object.fromEntries(formData)
-    if (data.question.length === 0) return toast.error("Completa la pregunta") 
-    const newQuestion = {...data, id : dataContext.length + 1 , video : ""}
-    setData((prev)=>{
+    if (data.question.length === 0) return toast.error("Completa la pregunta")
+    const newQuestion = { ...data, id: dataContext.length + 1, video: "" }
+    setData((prev) => {
       return [...prev, newQuestion]
     })
     setShow(!show)
@@ -31,13 +31,13 @@ export function useHandlerForm() {
 
   const handleChange = (e) => {
     console.log(inputId);
-    setData((prev)=>{
-      let dataChange = prev.find((item)=>item.id === parseInt(inputId))
-      const newDataChange = {...dataChange, question: e.target.value}
-      const newPrev = prev.filter((item)=>{
+    setData((prev) => {
+      let dataChange = prev.find((item) => item.id === parseInt(inputId))
+      const newDataChange = { ...dataChange, question: e.target.value }
+      const newPrev = prev.filter((item) => {
         return item.id !== parseInt(inputId)
       })
-      return [...newPrev,newDataChange]
+      return [...newPrev, newDataChange]
     })
   }
 
