@@ -21,9 +21,7 @@ function PageHome() {
   return (
     <div className="App">
       <h1 className='home-title tracking-in-contract'>Video Cuestionario</h1>
-      <VideoSlider>
-        <VideoCard />
-      </VideoSlider>
+      <VideoSlider/>
       <div className="home-description">
         {
           data.every(question => question.video !== "") ?

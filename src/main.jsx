@@ -8,12 +8,15 @@ import App from './App'
 import './index.css'
 import "react-multi-carousel/lib/styles.css";
 import "./Animation.css"
+import { VideoProvider } from './Context/VideoContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <AppProvider>
-        <App />
+        <VideoProvider>
+          <App />
+        </VideoProvider>
       </AppProvider>
     </BrowserRouter>
   </React.StrictMode>,

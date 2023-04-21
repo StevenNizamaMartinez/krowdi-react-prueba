@@ -12,6 +12,7 @@ function VideoPlayer({ url, controls = false }) {
     setPlaying(!playing)
   }
 
+  console.log(playing)
   return (
     <>
       <ReactPlayer
@@ -21,11 +22,14 @@ function VideoPlayer({ url, controls = false }) {
         height={"100%"}
         width={"100%"}
       />
-
       {
-        playing ?
-          <span className='btn-video' onClick={handlePlay}><FaPause /></span> :
-          <span className='btn-video' onClick={handlePlay} ><FaPlay /></span>
+        !controls && <>
+          {
+            playing ?
+              <span className='btn-video' onClick={handlePlay}><FaPause /></span> :
+              <span className='btn-video' onClick={handlePlay} ><FaPlay /></span>
+          }
+        </>
       }
 
     </>

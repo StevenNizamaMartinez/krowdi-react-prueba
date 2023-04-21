@@ -39,6 +39,7 @@
   border-radius: 12px;
   margin: 0 12px;
   overflow: hidden;
+  border : 2px solid var(--color-black);
 }
 
 .video-item-container {
@@ -49,11 +50,26 @@
 }
 
 .video-question {
+  border-top : 2px solid var(--color-black);
   word-wrap: break-word;
   padding: 12px;
 }
 
 .video-item-container video {
+  width: 100%;
+  height: 100%;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-video-player{
   width: 100%;
   height: 100%;
 }
@@ -68,8 +84,9 @@
   width: fit-content;
   gap: 24px;
   margin: 12px auto 0 auto;
-  width: 85%;
+  min-width: 300px;
   max-width: 600px;
+  padding: 12px;
 }
 
 .page-video-container .btn {
@@ -111,13 +128,16 @@ video {
 }
 
 .btn-restart{
-  /* bottom: unset;
   left: unset;
-  bottom: 140px;
-  /* left: 8px; */
+  right: 18px;
+  bottom: unset;
+  top: 18px;
   background-color: var(--color-primary);
 }
 
+.btn-restart:hover{
+  background-color: var(--color-primary);
+}
 
 .btn-video svg > * {
   font-size: 12px;

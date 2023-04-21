@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useAppContext } from '../Context/AppContext';
 
 import { responsive } from '../libs/slider';
@@ -6,13 +6,13 @@ import { responsive } from '../libs/slider';
 import { useNavigate } from 'react-router-dom';
 import VideoPlayer from './VideoPlayer';
 import Carousel from "react-multi-carousel";
+import { FaPlay } from 'react-icons/fa';
 
 function VideoSlider() {
   const { data } = useAppContext();
   const navigate = useNavigate()
 
   const handleClick = (id) => {
-    console.log(id);
     navigate(`/video/${id}`)
   }
 
@@ -30,7 +30,9 @@ function VideoSlider() {
             <div className="video-item" key={question.id} onClick={() => handleClick(question.id)}>
               <picture className='video-item-container'>
                 {
-                  question.video.length > 0 ? <VideoPlayer url={question?.video} /> : null
+                  question.video.length > 0 ?
+                    <VideoPlayer url={question?.video} /> :
+                    <img className='video-placeholder' src="https://capeoffice.co.za/site/wp-content/uploads/2017/06/video-placeholder.png" alt="" />
                 }
               </picture>
               <p className='video-question'>

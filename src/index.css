@@ -1,10 +1,10 @@
 :root {
-  --color-primary: #e68181;
-  --color-secondary: #3f497f;
+  --color-primary: #f18e5c;
+  --color-secondary: #898989 ;
   --color-success: #539165;
-  --color-gray: #c4c4c4;
+  --color-gray: #EDEDEE;
   --color-danger : #ff0505;
-  --color-pink: ;
+  --color-black : #333333;
 }
 
 html {
@@ -64,24 +64,23 @@ button {
 }
 
 /* Estilo para la flecha izquierda */
-.react-multiple-carousel__arrow--right,
-.react-multiple-carousel__arrow--left {
+.container-carousel .react-multiple-carousel__arrow--right,
+.container-carousel .react-multiple-carousel__arrow--left {
   background-color: var(--color-primary);
 }
 
-.react-multiple-carousel__arrow--right {
+.container-carousel .react-multiple-carousel__arrow--right {
   right: 0;
 }
 
-.react-multiple-carousel__arrow--right:hover {
+.container-carousel .react-multiple-carousel__arrow--right:hover {
   background-color: var(--color-gray);
 }
 
-.react-multiple-carousel__arrow--left {
+.container-carousel .react-multiple-carousel__arrow--left {
   left: 0;
 }
 
-.react-multiple-carousel__arrow--left:hover {
+.container-carousel  .react-multiple-carousel__arrow--left:hover {
   background-color: var(--color-gray);
 }
-
