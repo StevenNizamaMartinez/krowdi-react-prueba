@@ -9,7 +9,6 @@ import App from './App'
 import './index.css'
 import "./Animation.css"
 import "react-multi-carousel/lib/styles.css";
-import 'react-loading-skeleton/dist/skeleton.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
