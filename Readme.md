@@ -9,6 +9,10 @@ El proyecto dejado como reto para el curso de React Js
 
 <img src="./public//Krowdi.png">
 
+## Proyecto en vivo
+
+https://react-krowdi-stevennizama.netlify.app/
+
 ## Getting Started
 
 Instrucciones básicas para usar el proyecto
@@ -18,7 +22,7 @@ Instrucciones básicas para usar el proyecto
 Clona el repositorio del proyecto en tu máquina local. Puedes hacerlo usando el siguiente comando en tu terminal:
 
 ```
-git clone https://github.com/StevenNizamaMartinez/krowdi-react
+git clone https://github.com/StevenNizamaMartinez/krowdi-react-prueba
 ```
 
 Luego ejecuta el siguiente comando en la ruta raiz del proyecto
