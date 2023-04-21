@@ -11,7 +11,7 @@ function PageNewData() {
     handleInputId,
     handleChange,
     handleClick,
-    handleNewData,
+    handleAddQuestion ,
     show
   } = useHandlerForm()
 
@@ -25,7 +25,7 @@ function PageNewData() {
         <button onClick={handleClick} className='btn btn-black'>Añade una nueva pregunta</button>
         {
           show &&
-          <form className='form-container' onSubmit={handleNewData}>
+          <form className='form-container' onSubmit={handleAddQuestion }>
             <label htmlFor="newdata">Pregunta: </label>
             <input name='question' type="text" id='newdata' />
             <button className='btn btn-success'>Save</button>

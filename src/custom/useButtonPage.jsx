@@ -6,8 +6,8 @@ export function useButtonPage() {
   const {id} = useParams()
   const { data } = useAppContext()
   const navigate = useNavigate()
-  const len = useMemo(() => data.length, [data]);
-
+  const len = useMemo(() => data?.length, [data]);
+  
   const handleNext = useCallback(() => {
     if (parseInt(id) === len) return navigate('/video/1')
     navigate(`/video/${parseInt(id) + 1}`)

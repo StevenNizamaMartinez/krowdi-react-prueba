@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useAppContext } from '../Context/AppContext'
 
 export function useHandlerForm() {
@@ -8,20 +8,20 @@ export function useHandlerForm() {
   const [inputId, setInputId] = useState()
 
 
-  const handleInputId = (id) => {
+  const handleInputId = useCallback((id) => {
     console.log(id);
     setInputId(id)
-  }
+  }, [setInputId])
 
   const handleClick = () => {
     setShow(!show)
   }
 
-  const handleNewData = (e) => {
+  const handleAddQuestion  = (e) => {
     e.preventDefault()
     const formData = new FormData(e.target)
     const data = Object.fromEntries(formData)
-    if (data.question.length === 0) return toast.error("Completa la pregunta")
+    if (!data?.question?.length) return toast.error("Completa la pregunta")
     const newQuestion = { ...data, id: dataContext.length + 1, video: "" }
     setData((prev) => {
       return [...prev, newQuestion]
@@ -45,7 +45,7 @@ export function useHandlerForm() {
     handleInputId,
     handleChange,
     handleClick,
-    handleNewData,
+    handleAddQuestion ,
     show
   }
 }

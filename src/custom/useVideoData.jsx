@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import { useAppContext } from "../Context/AppContext";
@@ -6,28 +6,26 @@ import { useVideoContext } from "../Context/VideoContext";
 
 export function useVideoData() {
   const { id } = useParams()
-  const {data, question, setQuestion } = useAppContext()
-  const { recordingDuration, setRecordingDuration, status} = useVideoContext()
+  const { data, question, setQuestion } = useAppContext()
+  const { recordingDuration, setRecordingDuration, status } = useVideoContext()
 
   useEffect(() => {
-    setQuestion(data?.find((question) => question.id === parseInt(id)))
     setQuestion(data?.find((question) => question.id === parseInt(id)))
   }, [id, data])
 
   useEffect(() => {
-    // Para el temporizador
     let intervalId;
+    const RECORDING_INTERVAL_DURATION = 1000;
     if (status === 'recording') {
       intervalId = setInterval(() => {
         setRecordingDuration((prev) => prev + 1);
-      }, 1000);
+      }, RECORDING_INTERVAL_DURATION);
     }
     return () => clearInterval(intervalId);
-  }, [status]);
+  }, [status, setRecordingDuration]);
 
   useEffect(() => {
-    //Verificar la duración del video
-    const MAX_RECORDING_DURATION = 2 * 60; // 2 minutos
+    const MAX_RECORDING_DURATION = 120;
     if (recordingDuration === MAX_RECORDING_DURATION) {
       toast.error('Recording time exceeded 2 minutes')
     }
@@ -35,18 +33,18 @@ export function useVideoData() {
       stop()
       toast.error('Recording time exceeded 2 minutes')
     }
-  }, [recordingDuration])
+  }, [recordingDuration, stop])
 
-  const restart = () => {
+  const restart = useCallback(() => {
     setRecordingDuration(0)
     setQuestion((prev) => (
       { ...prev, video: "" }
     ))
-  }
+  }, [setRecordingDuration, setQuestion])
 
-  const stop = () => {
+  const stop = useCallback(() => {
     setRecordingDuration(0)
-  }
+  }, [setRecordingDuration])
 
   return {
     restart,

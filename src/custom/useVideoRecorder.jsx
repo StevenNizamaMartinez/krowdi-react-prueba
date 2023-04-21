@@ -26,9 +26,11 @@ export function useVideoRecorder() {
         const videoElement = videoRef.current;
         videoElement.srcObject = stream;
         const mediaRecorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+
         mediaRecorder.ondataavailable = function (e) {
           setRecordedChunks((prevChunks) => [...prevChunks, e.data]);
         };
+        
         mediaRecorder.onstop = function () {
           const recordedBlob = new Blob(recordedChunks.slice(), { type: 'video/webm' });
           const videoUrl = URL.createObjectURL(recordedBlob);
@@ -57,7 +59,7 @@ export function useVideoRecorder() {
     console.log(recordingDuration);
   }
 
-  const handleStartRecording = () => {
+  const handleStartRecording = useCallback(() => {
     setAnimate(true)
     setStatus("recording")
     setVideoUrl(null);
@@ -73,7 +75,7 @@ export function useVideoRecorder() {
     setMediaRecorder(mediaRecorder);
     mediaRecorder.start();
     setRecording(true);
-  };
+  }, []);
 
   const handleStopRecording = async () => {
     stopRecording()
