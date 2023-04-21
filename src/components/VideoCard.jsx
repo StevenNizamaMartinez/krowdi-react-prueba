@@ -1,7 +1,11 @@
 import { FiRefreshCw } from "react-icons/fi"
 import VideoPlayer from "./VideoPlayer"
+import { useVideoData } from "../custom/useVideoData"
+import { useAppContext } from "../Context/AppContext"
 
-function VideoCard({ question,restart }) {
+function VideoCard() {
+  const { question } = useAppContext()
+  const {restart} = useVideoData()
 
   return (
     <div className='video-full-container'>

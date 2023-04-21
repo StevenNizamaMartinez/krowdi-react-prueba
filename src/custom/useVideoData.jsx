@@ -6,8 +6,8 @@ import { useVideoContext } from "../Context/VideoContext";
 
 export function useVideoData() {
   const { id } = useParams()
-  const {data} = useAppContext()
-  const { animate, setAnimate, recordingDuration, setRecordingDuration, status, setStatus, question, setQuestion } = useVideoContext()
+  const {data, question, setQuestion } = useAppContext()
+  const { recordingDuration, setRecordingDuration, status} = useVideoContext()
 
   useEffect(() => {
     setQuestion(data?.find((question) => question.id === parseInt(id)))
@@ -49,14 +49,6 @@ export function useVideoData() {
   }
 
   return {
-    animate,
-    setAnimate,
-    recordingDuration,
-    setRecordingDuration,
-    status,
-    setStatus,
-    question,
-    setQuestion,
     restart,
     stop,
     question

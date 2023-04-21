@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { useAppContext } from '../Context/AppContext';
 import { useParams } from 'react-router-dom';
 import { FaPlay, FaStop } from 'react-icons/fa';

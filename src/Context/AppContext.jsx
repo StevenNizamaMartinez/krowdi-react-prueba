@@ -7,6 +7,7 @@ export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
 
   const [data,setData] = useState(questions)
+  const [question, setQuestion] = useState({})
 
   const saveVideosCompleted = (data) => {
     //Guarda los videos en y los envia al reclutador
@@ -19,7 +20,7 @@ export const AppProvider = ({ children }) => {
   }
 
   return (
-    <AppContext.Provider value={{data,setData, saveVideosCompleted, saveVideoDb}}>
+    <AppContext.Provider value={{data,setData,question, setQuestion, saveVideosCompleted, saveVideoDb}}>
       {children}
     </AppContext.Provider>)
 }

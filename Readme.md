@@ -3,11 +3,11 @@
 El proyecto dejado como reto para el curso de React Js
 
 ## Preview
-<img src="./Animation.gif">
+<img src="./public/Animation.gif">
 
 ## Model Abstraction
 
-<img src="./Krowdi.png">
+<img src="./public//Krowdi.png">
 
 ## Getting Started
 

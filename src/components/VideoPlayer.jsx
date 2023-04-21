@@ -12,7 +12,6 @@ function VideoPlayer({ url, controls = false }) {
     setPlaying(!playing)
   }
 
-  console.log(playing)
   return (
     <>
       <ReactPlayer
