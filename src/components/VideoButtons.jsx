@@ -1,10 +1,9 @@
-import React, { useCallback, useMemo } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import React  from 'react'
 import { useAppContext } from '../Context/AppContext'
 import {useButtonPage} from '../custom/useButtonPage'
 
 function VideoButtons() {
-  const {data} = useAppContext()
+  const {data, saveVideosCompleted} = useAppContext()
   const {handleNext, handleBack} = useButtonPage()
 
   const handleSave = () => {

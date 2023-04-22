@@ -150,6 +150,7 @@ video {
   justify-content: center;
   align-items: center;
   padding: 12px;
+  cursor: pointer;
 }
 
 .btn-restart {
@@ -158,10 +159,33 @@ video {
   bottom: unset;
   top: 18px;
   background-color: var(--color-primary);
+  cursor: pointer;
 }
 
 .btn-restart:hover {
   background-color: var(--color-primary);
+}
+
+.restart-container{
+  position: relative;
+  display: flex;
+}
+
+.btn-description {
+  display: block;
+  position: absolute;
+  right: 60px;
+  top: 25px;
+  transform: translateY(-50%);
+  background-color: black;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.btn-video:hover + .btn-description {
+  transition: 1s ease;
+  display: block;
 }
 
 .btn-video svg > * {

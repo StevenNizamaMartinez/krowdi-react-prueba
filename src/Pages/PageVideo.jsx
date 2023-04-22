@@ -18,7 +18,7 @@ function PageVideo() {
     setAnimate,
     setStatus
   } = useVideoData()
-
+  console.log(question);
   return (
     <div className='page-video-container blur-in-expand'>
       <ButtonBack />

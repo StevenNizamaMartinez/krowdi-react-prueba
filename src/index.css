@@ -36,6 +36,7 @@ button {
   font-weight: bold;
   width: fit-content;
   gap: 12px;
+  cursor: pointer;
 }
 
 .btn:hover {

@@ -4,16 +4,16 @@ import { useParams } from 'react-router-dom';
 import { FaPlay, FaStop } from 'react-icons/fa';
 import { useVideoRecorder } from '../custom/useVideoRecorder';
 
-const VideoRtc = ({ setStatus, question, stop, setAnimate, recordingDuration }) => {
+const VideoRtc = ({question}) => {
   const { id } = useParams()
-  const { data, setData, saveVideoDb } = useAppContext()
+  const { data, setData } = useAppContext()
   const {
     videoRef,
     recording,
     videoUrl,
     handleStartRecording,
     handleStopRecording
-  } = useVideoRecorder({ setAnimate,recordingDuration, setStatus, stop, saveVideoDb})
+  } = useVideoRecorder()
 
 
 

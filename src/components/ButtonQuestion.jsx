@@ -9,7 +9,7 @@ function ButtonQuestion() {
 
   const handleEdit = () => {
     navigate("/edit")
-    toast.success("Para recalcar solo los recluters podran editar esto, los postulantes no")
+    toast.success("Solo usuarios autorizados realizarán esto")
   }
 
   return (
