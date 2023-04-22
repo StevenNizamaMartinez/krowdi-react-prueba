@@ -9,6 +9,7 @@ function ButtonQuestion() {
 
   const handleEdit = () => {
     navigate("/edit")
+    toast.dismiss()
     toast.success("Solo usuarios autorizados realizarán esto")
   }
 
