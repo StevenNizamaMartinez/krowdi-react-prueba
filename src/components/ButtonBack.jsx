@@ -2,11 +2,13 @@ import React from 'react'
 
 import { useNavigate } from 'react-router-dom'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
+import { toast } from 'react-hot-toast'
 
 function ButtonBack() {
   const navigate = useNavigate()
 
   const handleBack = () => {
+    toast.dismiss()
     navigate("/")
   }
 
