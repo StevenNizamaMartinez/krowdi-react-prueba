@@ -2,16 +2,16 @@
 
 El proyecto dejado como reto para el curso de React Js
 
+## Proyecto en vivo
+
+https://react-krowdi-stevennizama.netlify.app/
+
 ## Preview
 <img src="./public/Animation.gif">
 
 ## Model Abstraction
 
 <img src="./public//Krowdi.png">
-
-## Proyecto en vivo
-
-https://react-krowdi-stevennizama.netlify.app/
 
 ## Getting Started
 
