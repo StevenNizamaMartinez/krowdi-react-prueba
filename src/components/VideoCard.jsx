@@ -15,6 +15,7 @@ function VideoCard() {
       <VideoPlayer url={question?.video} controls={true} />
       <p className='question'>{question.question}</p>
         <span
+        onClick={()=>restart()}
           onMouseOver={() => { setShowDescription(true) }}
           onMouseOut={() => { setShowDescription(false) }}
           className='btn-video btn-restart rotate-center-refressh'>
