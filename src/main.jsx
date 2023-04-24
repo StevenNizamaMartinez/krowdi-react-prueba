@@ -12,7 +12,7 @@ import "react-multi-carousel/lib/styles.css";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename='/krowdi-react-prueba'>
+    <BrowserRouter >
       <AppProvider>
         <VideoProvider>
           <App />
